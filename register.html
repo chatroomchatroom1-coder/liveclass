@@ -20,7 +20,42 @@
             <p style="margin-top: 15px;">Have account? <a href="login.html">Login</a></p>
         </div>
     </div>
+    
     <script src="js/config.js"></script>
-    <script src="js/auth.js"></script>
+    <script>
+        document.getElementById('registerForm').addEventListener('submit', async (e) => {
+            e.preventDefault(); // Ye form ko reload hone se rokega
+            
+            const fullname = document.getElementById('fullname').value;
+            const email = document.getElementById('email').value;
+            const password = document.getElementById('password').value;
+            
+            // Step 1: User create karo
+            const { data, error } = await supabaseClient.auth.signUp({ 
+                email: email, 
+                password: password 
+            });
+            
+            if (error) {
+                alert("Error: " + error.message);
+                return;
+            }
+            
+            // Step 2: Database table me name save karo
+            if (data.user) {
+                const { error: dbError } = await supabaseClient.from('users').insert([
+                    { id: data.user.id, email: email, full_name: fullname }
+                ]);
+                
+                if (dbError) {
+                    alert("Database Error: " + dbError.message);
+                    return;
+                }
+                
+                alert("Account ban gaya! Ab login karein.");
+                location.href = 'login.html';
+            }
+        });
+    </script>
 </body>
 </html>
