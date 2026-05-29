@@ -1,0 +1,12 @@
+:root { --bg-color: #0f172a; --glass-bg: rgba(30, 41, 59, 0.7); --primary: #3b82f6; --danger: #ef4444; }
+* { margin: 0; padding: 0; box-sizing: border-box; font-family: sans-serif; }
+body { background: var(--bg-color); color: white; }
+.glass-panel { background: var(--glass-bg); backdrop-filter: blur(10px); border: 1px solid rgba(255,255,255,0.1); border-radius: 12px; padding: 20px; }
+.btn { padding: 10px 15px; border: none; border-radius: 8px; color: white; cursor: pointer; font-weight: bold; }
+.btn-primary { background: var(--primary); }
+.btn-danger { background: var(--danger); }
+input { width: 100%; padding: 12px; margin: 8px 0; border-radius: 8px; background: rgba(0,0,0,0.2); border: 1px solid rgba(255,255,255,0.1); color: white; }
+.auth-container { display: flex; justify-content: center; align-items: center; min-height: 90vh; padding: 20px; }
+.auth-box { width: 100%; max-width: 400px; text-align: center; }
+nav { display: flex; justify-content: space-between; padding: 15px; background: var(--glass-bg); }
+a { color: var(--primary); }
