@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard</title>
+    <link rel="stylesheet" href="css/style.css">
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+</head>
+<body>
+    <nav>
+        <h1>Admin Control Panel</h1>
+        <button class="btn btn-danger" onclick="logout()">Logout</button>
+    </nav>
+    <div style="padding: 20px;">
+        <div class="glass-panel" style="margin-bottom: 20px;">
+            <h2>Create Class</h2>
+            <input type="text" id="classTitle" placeholder="Class Title">
+            <button class="btn btn-primary" onclick="createClass()">Start Class</button>
+        </div>
+        <div class="glass-panel">
+            <h2>Pending Requests</h2>
+            <div id="requestsList"></div>
+        </div>
+    </div>
+    <script src="js/config.js"></script>
+    <script src="js/admin.js"></script>
+</body>
+</html>
